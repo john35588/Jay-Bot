@@ -16,6 +16,19 @@ function respond() {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
+    
+      botRegex = /^\What's up Jay?$/;
+
+  if(request.text && botRegex.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("Not much.");
+    this.res.end();
+  } else {
+    console.log("don't care");
+    this.res.writeHead(200);
+    this.res.end();
+  }
+    
   }
 }
 
