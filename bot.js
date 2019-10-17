@@ -17,7 +17,7 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
     
-      botRegex = /^\What's up$/;
+      botRegex = /^\What\'s up$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
