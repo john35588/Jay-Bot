@@ -16,9 +16,9 @@ function respond() {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
-    
+  }
+  
       botRegex = /^\Whats up$/;
-
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Not much.");
@@ -29,7 +29,7 @@ function respond() {
     this.res.end();
   }
     
-  }
+  
 }
 
 function postMessage(respond) {
