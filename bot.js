@@ -5,9 +5,9 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /Hi Jay!/i; botRegexHello = /hello there/i; botRegexGot = /Got em/i; botRegexChill = /Chill/i; botRegexOof = /Oof/i; botRegexSleep = /Goodnight/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
+  var botRegex = /hi jay!/i; botRegexHello = /hello there/i; botRegexGot = /got em/i; botRegexChill = /chill/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
   
-  if(request.text && botRegex.test(request.text)) {
+  if(request.text && botRegex.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Hi John!");
     this.res.end();
@@ -17,22 +17,22 @@ function respond() {
     postMessage("Hey!");
     this.res.end();
   }
-  else if(request.text && botRegexGot.test(request.text)) {
+  else if(request.text && botRegexGot.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("You Can't catch me!");
     this.res.end();
   }
-  else if(request.text && botRegexChill.test(request.text)) {
+  else if(request.text && botRegexChill.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("I am chill.");
     this.res.end();
   }
-  else if(request.text && botRegexOof.test(request.text)) {
+  else if(request.text && botRegexOof.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Oofity Oofy!");
     this.res.end();
   }
-  else if(request.text && botRegexSleep.test(request.text)) {
+  else if(request.text && botRegexSleep.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Sleep well!");
     this.res.end();
