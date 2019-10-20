@@ -134,16 +134,11 @@ function randomCommand() {
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /Hi Jay!/i; botRegexHelp = /^\/help/i; botRegexWhats = /what's going on/i; botRegexLion = /lion sleeps/i; botRegexShop = /Wii shop/i; botRegexChannel = /mii channel/i; botRegexHoles = /How many holes/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
+  var botRegex = /Hi Jay!/i; botRegexWhats = /what's going on/i; botRegexLion = /lion sleeps/i; botRegexShop = /Wii shop/i; botRegexChannel = /mii channel/i; botRegexHoles = /How many holes/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Hi John!");
-    this.res.end();
-  } 
-  else if(request.text && botRegexHelp.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage(helpMessageA);
     this.res.end();
   }
   else if(request.text && botRegexWhats.test(request.text)) {
