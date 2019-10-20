@@ -5,7 +5,8 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexHello = /hello there/i; botRegexGot = /got em/i; botRegexChill = /chill/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
+  var botRegex = /hi jay/i; botRegexHello = /hello there/i; botRegexGot = /got em/i; botRegexChill = /chill/i;
+   botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexFancy = /fancy/i;
   
   if(request.text && botRegex.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
@@ -37,14 +38,19 @@ function respond() {
     postMessage("Sleep well!");
     this.res.end();
   }
-  else if(request.text && botRegexRandomCommand.test(request.text)) {
+  else if(request.text && botRegexXd.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage(randomCommand());
+    postMessage("😆");
     this.res.end();
   }
-  else if(request.text && botRegexTrump.test(request.text)) {
+  else if(request.text && botRegexYum.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("YOU CAN'T STUMP THE TRUMP!");
+    postMessage("😋");
+    this.res.end();
+  }
+  else if(request.text && botRegexFancy.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Oh yes, very fancy.");
     this.res.end();
   }
   else {
