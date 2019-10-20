@@ -5,14 +5,14 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /Hi Jay!/i; botRegexHi = /Hi/i; botRegexGot = /Got em/i; botRegexChill = /Chill/i; botRegexOof = /Oof/i; botRegexSleep = /Goodnight/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
+  var botRegex = /Hi Jay!/i; botRegexHello = /hello there/i; botRegexGot = /Got em/i; botRegexChill = /Chill/i; botRegexOof = /Oof/i; botRegexSleep = /Goodnight/i; botRegexRandomCommand = /do a thing/i; botRegexLoop = /lol nice try nic/i;
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Hi John!");
     this.res.end();
   }
-  else if(request.text && botRegexHi.test(request.text)) {
+  else if(request.text && botRegexHello.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Hey!");
     this.res.end();
