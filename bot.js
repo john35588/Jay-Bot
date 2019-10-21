@@ -14,7 +14,8 @@ function respond() {
   
   if(request.text && botRegex.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("Hi John!");
+    var message = "Hi"
+    postMessage("Hi " request.name "!");
     request = "null";
     this.res.end();
   }
