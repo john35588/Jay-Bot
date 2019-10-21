@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexHello = /hello there/i; botRegexGot = /got em/i;
+  var botRegex = /hi jay/i; botRegexHello = /hello there/i; botRegexGot = /got em/i; botRegexOofity = / oofity oofy/i;
    botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i;
   
   if(request.text && botRegex.test(request.text.toLowerCase())) {
@@ -14,7 +14,7 @@ function respond() {
     request = "null";
     this.res.end();
   }
-  else if(request.text == "Oofity Oofy") {
+  else if(request.text && botRegexOofity.test(request.text.toLowerCase())) {
     request = "null";
   }
   else if(request.text && botRegexHello.test(request.text.toLowerCase())) {
