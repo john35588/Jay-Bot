@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /john wendel/i;
+  var botRegex = /hi jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i;
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase())) {
     request.text = "null";
@@ -16,9 +16,15 @@ function respond() {
     postMessage("Hi " + request.name + "!");
     this.res.end();
   }
-  else if(request.text && botRegexAdded.test(request.text.toLowerCase())) {
+  else if(request.text && botRegexAdded.test(request.text.toLowerCase()) && request.name == "GroupMe") {
     this.res.writeHead(200);
-    postMessage(request.name);
+    var searchTerm = 'added';
+    var indexOfFirst = request.text.indexOf(searchTerm);
+    console.log('The index of "' + searchTerm + '" from the beginning is ' + indexOfFirst);
+    var searchTerm = 'to the';
+    var indexOfSec = request.text.indexOf(searchTerm);
+    console.log('The index of "' + searchTerm + '" from the beginning is ' + indexOfFirst);
+    postMessage("Hello " + request.text.slice(indexOfFirst + 5, indexOfSec - 1) + ", welcome to the group!");
     this.res.end();
   }
   else if(request.text && botRegexDoing.test(request.text.toLowerCase()) || botRegexDoingT.test(request.text.toLowerCase())) {
