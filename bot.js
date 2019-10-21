@@ -14,45 +14,38 @@ function respond() {
   
   if(request.text && botRegex.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    var message = "Hi"
-    postMessage("Hi " request.name "!");
-    request = "null";
+    postMessage("Hi " + request.name + "!");
+    
     this.res.end();
   }
   else if(request.text && botRegexDoing.test(request.text.toLowerCase()) || botRegexDoingT.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Great! How are you?");
-    request = "null";
     this.res.end();
   }
   else if(request.text && botRegexGot.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("You Can't catch me!");
-    request = "null";
     this.res.end();
   }
   else if(request.text && botRegexOof.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Oofity Oofy!");
-    request = "null";
     this.res.end();
   }
   else if(request.text && botRegexSleep.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Sleep well!");
-    request = "null";
     this.res.end();
   }
   else if(request.text && botRegexXd.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("😆");
-    request = "null";
     this.res.end();
   }
   else if(request.text && botRegexYum.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("😋");
-    request = "null";
     this.res.end();
   }
   else {
