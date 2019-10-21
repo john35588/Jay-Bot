@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i;
+  var botRegex = /hi jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i;
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase())) {
     request.text = "null";
@@ -45,6 +45,11 @@ function respond() {
   else if(request.text && botRegexSleep.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Sleep well!");
+    this.res.end();
+  }
+  else if(request.text && botRegexAuto.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("*Autocarrot");
     this.res.end();
   }
   else if(request.text && botRegexXd.test(request.text.toLowerCase())) {
