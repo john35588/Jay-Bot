@@ -15,7 +15,7 @@ function respond() {
     this.res.end();
   }
   else if(request.text && botRegexOofity.test(request.text.toLowerCase())) {
-    request = "null";
+    request.text = "null";
   }
   else if(request.text && botRegexHello.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
