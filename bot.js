@@ -20,7 +20,7 @@ function respond() {
   }
   else if(request.text && botRegexDoing.test(request.text.toLowerCase()) || botRegexDoingT.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("All is going great, How are you?");
+    postMessage("Great! How are you?");
     request = "null";
     this.res.end();
   }
