@@ -5,13 +5,13 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /morning/i; botRegexMorningt = /good morning/i; botRegexOops = /oops/i; 
+  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /morning/i; botRegexMorningt = /good morning/i; botRegexOops = /oops/i; 
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningt.test(request.text.toLowerCase())) {
     request.text = "null";
   }
   
-  if(request.text && botRegex.test(request.text.toLowerCase())) {
+  if(request.text && botRegex.test(request.text.toLowerCase()) || botRegexT.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Hi " + request.name + "!");
     this.res.end();
