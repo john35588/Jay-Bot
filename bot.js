@@ -4,7 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function randomJoke() {
-  var jokes = ['
+  var jokes = [
   'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesn\'t know my name is Brian.'
   'Did you know the first French fries weren\'t actually cooked in France? They were cooked in Greece.'
   'If a child refuses to sleep during nap time, are they guilty of resisting a rest?'
