@@ -5,11 +5,11 @@ var botID = process.env.BOT_ID;
 
 function randomJoke() {
   var jokes = [
-  'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesn\'t know my name is Brian.'
-  'Did you know the first French fries weren\'t actually cooked in France? They were cooked in Greece.'
-  'If a child refuses to sleep during nap time, are they guilty of resisting a rest?'
-  'The secret service isn\'t allowed to yell "Get down!" anymore when the president is about to be attacked. Now they have to yell "Donald, duck!"'
-  'What do you call someone with no body and no nose? Nobody knows.'
+  'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesn\'t know my name is Brian.',
+  'Did you know the first French fries weren\'t actually cooked in France? They were cooked in Greece.',
+  'If a child refuses to sleep during nap time, are they guilty of resisting a rest?',
+  'The secret service isn\'t allowed to yell "Get down!" anymore when the president is about to be attacked. Now they have to yell "Donald, duck!"',
+  'What do you call someone with no body and no nose? Nobody knows.',
   ]
   var randomItem = jokes[Math.floor(Math.random()*myArray.length)];
   return randomItem
