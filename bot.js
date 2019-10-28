@@ -1,6 +1,5 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
-
 var botID = process.env.BOT_ID;
 
 function randomJoke() {
@@ -22,7 +21,6 @@ function randomJoke() {
   'What do you call a dog that can do magic? A Labracadabrador.',
   '5/4 of people admit that they’re bad with fractions.',
   'I used to have a job at a calendar factory but I got the sack because I took a couple of days off.',
-  'KID: "Hey, I was thinking…" DAD: "I thought I smelled something burning.”',
   'What is Beethoven’s favorite fruit? A ba-na-na-na.',
   'You know what the loudest pet you can get is? A trumpet.',
   'Why wasn\'t the woman happy with the velcro she bought? It was a total ripoff.',
@@ -39,7 +37,7 @@ function randomJoke() {
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i;
+  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i;
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase())) {
     request.text = "null";
@@ -129,6 +127,11 @@ function respond() {
   else if(request.text && botRegexTired.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Hey Tired, I'm Jay!");
+    this.res.end();
+  }
+  else if(request.text && botRegexHungry.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Hey Hungry, I'm Jay!");
     this.res.end();
   }
   else {
