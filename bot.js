@@ -71,7 +71,7 @@ function respond() {
   }
   else if(request.text && botRegexGot.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("You Can't catch me!");
+    postMessage("You can't catch me!");
     this.res.end();
   }
   else if(request.text && botRegexOof.test(request.text.toLowerCase())) {
@@ -141,7 +141,7 @@ function respond() {
   }
   else {
     
-    console.log("don't care, " + created_at);
+    console.log("don't care, " + request.created_at);
     this.res.writeHead(200);
     this.res.end();
   }
