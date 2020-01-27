@@ -50,7 +50,7 @@ function respond() {
   }
   else if(request.text && botRegex.test(request.text.toLowerCase()) || botRegexT.test(request.text.toLowerCase()) || botRegexTr.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("Hi " + request.name + "!");
+    postMessage("Hi " + request.name + "!" + request.system);
     this.res.end();
   }
   else if(request.text && botRegexAdded.test(request.text.toLowerCase()) && request.name == "GroupMe") {
@@ -141,7 +141,7 @@ function respond() {
   }
   else {
     
-    console.log("don't care, " + request.created_at);
+    console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
   }
