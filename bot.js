@@ -141,7 +141,7 @@ function respond() {
   }
   else if(request.text && botRegexDate.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage(Date());
+    postMessage(Date(8));
     this.res.end();
   }
   else {
