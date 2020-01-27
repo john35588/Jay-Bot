@@ -141,7 +141,7 @@ function respond() {
   }
   else if(request.text && botRegexEcho.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage(request.text);
+    postMessage(request.text - 10);
     this.res.end();
   }
   else {
