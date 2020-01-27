@@ -166,6 +166,12 @@ function postMessage(response) {
   body = {
     "bot_id" : botID,
     "text" : botResponse
+    "attachments" : [
+      {
+        "type"  : "image",
+        "url"   : "https://i.groupme.com/somethingsomething.large"
+      }
+    ]
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
