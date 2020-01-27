@@ -141,7 +141,7 @@ function respond() {
   }
   else {
     
-    console.log("don't care");
+    console.log("don't care" + request.system);
     this.res.writeHead(200);
     this.res.end();
   }
