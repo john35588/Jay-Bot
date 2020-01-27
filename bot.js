@@ -37,7 +37,7 @@ function randomJoke() {
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexEcho = /jay echo/i;
+  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexDate = /give date/i;
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase())) {
     request.text = "null";
@@ -139,9 +139,9 @@ function respond() {
     postMessage("😮");
     this.res.end();
   }
-  else if(request.text && botRegexEcho.test(request.text.toLowerCase())) {
+  else if(request.text && botRegexDate.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("");
+    postMessage(Date());
     this.res.end();
   }
   else {
