@@ -2,6 +2,20 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
+function getTitle(externalUrl){
+  var proxyurl = "http://localhost/get_external_content.php?url=" + externalUrl;
+  $.ajax({
+    url: proxyurl,
+    async: true,
+    success: function(response) {
+      alert(response);
+    },   
+    error: function(e) {
+      alert("error! " + e);
+    }
+  });
+}
+
 function randomJoke() {
   var jokes = [
   'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesn\'t know my name is Brian.',
@@ -148,11 +162,7 @@ function respond() {
     this.res.writeHead(200);
     var searchTerm = 'xkcd ';
     var indexOfFirst = request.text.indexOf(searchTerm);
-    url: "http://textance.herokuapp.com/title/www.bbc.co.uk",
-    complete: function(data) {
-      console.log(data.responseText);
-    }
-    postMessage("https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/");
+    postMessage(getTitle("https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/"));
     this.res.end();
   }
   else {
