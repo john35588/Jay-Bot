@@ -146,7 +146,10 @@ function respond() {
   }
   else if(request.text && botRegexXkcd.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("yay!");
+    var searchTerm = 'xkcd ';
+    var indexOfFirst = request.text.indexOf(searchTerm);
+    var
+    postMessage("https://xkcd.com/' + request.text.slice(indexOfFirst + 5) + "/");
     this.res.end();
   }
   else {
