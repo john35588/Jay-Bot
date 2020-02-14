@@ -149,9 +149,7 @@ function respond() {
     this.res.writeHead(200);
     var searchTerm = 'xkcd ';
     var indexOfFirst = request.text.indexOf(searchTerm);
-    var link = "https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/"
-    var title = link.document.title
-    postMessage(title);
+    postMessage("https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/");
     this.res.end();
   }
   else {
