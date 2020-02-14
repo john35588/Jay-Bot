@@ -148,6 +148,12 @@ function respond() {
     this.res.writeHead(200);
     var searchTerm = 'xkcd ';
     var indexOfFirst = request.text.indexOf(searchTerm);
+    $.ajax({
+      url: "http://textance.herokuapp.com/title/www.bbc.co.uk",
+      complete: function(data) {
+        console.log(data.responseText);
+      }
+    });
     postMessage("https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/");
     this.res.end();
   }
