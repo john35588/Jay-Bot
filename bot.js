@@ -144,6 +144,11 @@ function respond() {
     postMessage(Date());
     this.res.end();
   }
+  else if(request.text && botRegexXkcd.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("yay!");
+    this.res.end();
+  }
   else {
     
     console.log("don't care");
