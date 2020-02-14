@@ -2,19 +2,6 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
-function getTitle(externalUrl){
-  var proxyurl = "http://localhost/get_external_content.php?url=" + externalUrl;
-  $.ajax({
-    url: proxyurl,
-    async: true,
-    success: function(response) {
-      alert(response);
-    },   
-    error: function(e) {
-      alert("error! " + e);
-    }
-  });
-}
 
 function randomJoke() {
   var jokes = [
@@ -162,7 +149,9 @@ function respond() {
     this.res.writeHead(200);
     var searchTerm = 'xkcd ';
     var indexOfFirst = request.text.indexOf(searchTerm);
-    postMessage(getTitle("https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/"));
+    var link = "https://xkcd.com/" + request.text.slice(indexOfFirst + 5) + "/"
+    var title = link.document.title
+    postMessage(title);
     this.res.end();
   }
   else {
