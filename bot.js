@@ -149,7 +149,7 @@ function respond() {
     this.res.writeHead(200);
     var searchTerm = 'xkcd ';
     var indexOfFirst = request.text.indexOf(searchTerm);
-    postMessage("https://imgs.xkcd.com/comics/" + request.text.slice(indexOfFirst + 5) + ".png");
+    postMessage("https://imgs.xkcd.com/comics/" + request.text.slice(indexOfFirst + 5).toLowerCase() + ".png");
     this.res.end();
   }
   else {
