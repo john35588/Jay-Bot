@@ -153,7 +153,7 @@ function respond() {
   }
   else if(request.text && botRegexXkcd.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    var searchTerm = 'xkcd ';
+    var searchTerm = 'xkcd';
     var indexOfFirst = request.text.indexOf(searchTerm);
     postMessage("https://imgs.xkcd.com/comics/" + request.text.slice(indexOfFirst + 5).toLowerCase() + ".png");
     this.res.end();
