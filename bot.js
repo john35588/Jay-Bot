@@ -2,6 +2,17 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
+function randomNight() {
+  var night = [
+    'Sleep well!',
+    'Good night!',
+    'Don\'t let the bed bugs bite!',
+    'Sweet dreams!'
+  ]
+  var randomItem = night[Math.floor(Math.random()*jokes.length)];
+  return randomItem
+}
+
 function randomJoke() {
   var jokes = [
   'Today, my son asked "Can I have a book mark?" and I burst into tears. 11 years old and he still doesn\'t know my name is Brian.',
@@ -83,7 +94,7 @@ function respond() {
   }
   else if(request.text && botRegexSleep.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("Sleep well!");
+    postMessage(randomNight());
     this.res.end();
   }
   else if(request.text && botRegexAuto.test(request.text.toLowerCase())) {
