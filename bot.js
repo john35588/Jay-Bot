@@ -9,7 +9,7 @@ function randomNight() {
     'Don\'t let the bed bugs bite!',
     'Sweet dreams!'
   ]
-  var randomItem = night[Math.floor(Math.random()*jokes.length)];
+  var randomItem = night[Math.floor(Math.random()*night.length)];
   return randomItem
 }
 
