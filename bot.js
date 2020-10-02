@@ -2,7 +2,7 @@ var HTTPS = require('https');
 var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 var fs    = require('fs');
-var names = " ";
+var names = "";
 function randomNight() {
   var night = [
     'Sleep well!',
@@ -54,6 +54,7 @@ function respond() {
   console.log(request.name + ": " + request.text);
   
   var search = names.search(request.name);
+  console.log("Search: "search);
   
   if(search = -1) {
     fs.appendFile('names.txt', '@' + request.name + ' ', function (err) { 
