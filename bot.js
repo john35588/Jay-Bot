@@ -53,7 +53,9 @@ function respond() {
   
   console.log(request.name + ": " + request.text);
   
-  if(names.search(request.name) = -1) {
+  var search = names.search(request.name);
+  
+  if(search = -1) {
     fs.appendFile('names.txt', '@' + request.name + ' ', function (err) { 
       if (err)
         console.log(err);
