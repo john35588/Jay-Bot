@@ -2,7 +2,7 @@ var HTTPS = require('https');
 var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 var fs    = require('fs');
-
+var names;
 function randomNight() {
   var night = [
     'Sleep well!',
@@ -72,7 +72,7 @@ function respond() {
 
           // Print only read bytes to avoid junk.
         if (bytes > 0) {
-          var names = buffr.slice(0, bytes).toString();
+          names = buffr.slice(0, bytes).toString();
         }
 
               // Close the opened file.
@@ -82,7 +82,7 @@ function respond() {
       });
     });
     return names
-  };
+  }
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
