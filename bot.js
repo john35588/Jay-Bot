@@ -1,6 +1,7 @@
 var HTTPS = require('https');
 var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
+var fs    = require('fs');
 
 function randomNight() {
   var night = [
@@ -51,6 +52,13 @@ function respond() {
   var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexDoof = /doof/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexDate = /get date/i; botRegexXkcd = /get xkcd/i; botRegexBored = /i'm bored/i;
   
   console.log(request.name + ": " + request.text);
+  
+  fs.appendFile('names.txt', request.name, function (err) { 
+    if (err)
+      console.log(err);
+    else
+      console.log('Append operation complete.');
+  });
   
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
