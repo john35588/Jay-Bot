@@ -60,6 +60,8 @@ function respond() {
       console.log('Name Appended.');
   });
   
+  console.log(getNames());
+  
   function getNames() {
     fs.open('names.txt', 'r', function (err, fd) {
       if (err) {
