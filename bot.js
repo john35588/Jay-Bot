@@ -1,7 +1,6 @@
 var HTTPS = require('https');
 var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
-var users = require('names.txt')
 
 function randomNight() {
   var night = [
