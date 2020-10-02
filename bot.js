@@ -60,6 +60,27 @@ function respond() {
       console.log('Append operation complete.');
   });
   
+  fs.open('names.txt', 'r', function (err, fd) {
+    if (err) {
+      return console.error(err);
+    }
+    var buffr = new Buffer(1024);
+    
+    fs.read(fd, buffr, 0, buffr.length, 0, function (err, bytes) {
+      if (err) throw err;
+      
+        // Print only read bytes to avoid junk.
+      if (bytes > 0) {
+        console.log(buffr.slice(0, bytes).toString());
+      }
+        
+            // Close the opened file.
+    fs.close(fd, function (err) {
+      if (err) throw err;
+        });
+    });
+});
+  
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
