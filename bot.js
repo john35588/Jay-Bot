@@ -53,12 +53,14 @@ function respond() {
   
   console.log(request.name + ": " + request.text);
   
-  fs.appendFile('names.txt', '@' + request.name + ' ', function (err) { 
-    if (err)
-      console.log(err);
-    else
-      console.log('Name Appended.');
-  });
+  if (names.search(request.name) = -1) {
+    fs.appendFile('names.txt', '@' + request.name + ' ', function (err) { 
+      if (err)
+        console.log(err);
+      else
+        console.log('Name Appended.');
+    });
+  }
   
   console.log(getNames());
   
