@@ -49,7 +49,7 @@ function randomJoke() {
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexDoof = /doof/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexDate = /get date/i; botRegexXkcd = /get xkcd/i; botRegexBored = /i'm bored/i; botRegexEveryone = /@everyone/i;
+  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexDoof = /doof/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexDate = /get date/i; botRegexXkcd = /get xkcd/i; botRegexBored = /i'm bored/i; botRegexEveryone = /@everyone/i; botRegexBirthday = /happy birthday jay?i;
   
   console.log(request.name + ": " + request.text);
   
@@ -199,6 +199,11 @@ function respond() {
   else if(request.text && botRegexDate.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage(Date());
+    this.res.end();
+  }
+  else if(request.text && botRegexBirthday.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Thanks!");
     this.res.end();
   }
   else if(request.text && botRegexEveryone.test(request.text.toLowerCase())) {
