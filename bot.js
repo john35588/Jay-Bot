@@ -3,6 +3,7 @@ var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 var fs    = require('fs');
 var names = "";
+
 function randomNight() {
   var night = [
     'Sleep well!',
@@ -11,6 +12,17 @@ function randomNight() {
     'Sweet dreams!'
   ]
   var randomItem = night[Math.floor(Math.random()*night.length)];
+  return randomItem
+}
+
+function randomFace() {
+  var face = [
+    '😊',
+    '😁',
+    '😉',
+    '😎'
+  ]
+  var randomItem = face[Math.floor(Math.random()*face.length)];
   return randomItem
 }
 
@@ -49,7 +61,15 @@ function randomJoke() {
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /hi jay/i; botRegexT = /hello jay/i; botRegexTr = /hey jay/i; botRegexTn = /hey jay,/i; botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i; botRegexDoof = /doof/i; botRegexOofity = /oofity oofy/i; botRegexOof = /oof/i; botRegexSleep = /goodnight/i; botRegexXd = /xd/i; botRegexYum = /yum/i; botRegexAdded = /added/i; botRegexAuto = /autocorrect/i; botRegexQuin = /shut up jay/i; botRegexTable = /table flip/i; botRegexDown = /i'm down/i; botRegexMorning = /good morning/i; botRegexMorningT = /good morning/i; botRegexOops = /oops/i; botRegexOopsT = /oopsie/i; botRegexJokes = /tell me a joke/i; botRegexTired = /i'm tired/i; botRegexHungry = /i'm hungry/i; botRegexNo = /oh no/i; botRegexDate = /get date/i; botRegexXkcd = /get xkcd/i; botRegexBored = /i'm bored/i; botRegexEveryone = /@everyone/i; botRegexBirthday = /happy birthday jay/i;
+  var botRegex = /hi jay/i;            botRegexT = /hello jay/i;            botRegexTr = /hey jay/i;      botRegexGB = /good bot/i;
+  botRegexDoing = /how are you, jay/i; botRegexDoingT = /how are you jay/i; botRegexGot = /got em/i;      botRegexStark = /tony stark/i;
+  botRegexDoof = /doof/i;              botRegexOofity = /oofity oofy/i;     botRegexOof = /oof/i;         botRegexSleep = /goodnight/i; 
+  botRegexXd = /xd/i;                  botRegexYum = /yum/i;                botRegexAdded = /added/i;     botRegexAuto = /autocorrect/i; 
+  botRegexQuin = /shut up jay/i;       botRegexTable = /table flip/i;       botRegexDown = /i'm down/i;   botRegexSiri = /siri/i;
+  botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       
+  botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
+  botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
+  botRegexBored = /i'm bored/i;        botRegexEveryone = /@everyone/i;     botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
   
@@ -65,7 +85,7 @@ function respond() {
     });
   }
   
-  console.log(getNames());
+  //console.log(getNames());
   
   function getNames() {
     fs.open('names.txt', 'r', function (err, fd) {
@@ -216,6 +236,26 @@ function respond() {
     var searchTerm = 'xkcd';
     var indexOfFirst = request.text.indexOf(searchTerm);
     postMessage("https://imgs.xkcd.com/comics/" + request.text.slice(indexOfFirst + 5).toLowerCase() + ".png");
+    this.res.end();
+  }
+  else if(request.text && botRegexStark.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Hey! I know Mr. Stark! Jarvis is my friend!");
+    this.res.end();
+  }
+  else if(request.text && botRegexSiri.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("I'm soooo much smarter than Siri!");
+    this.res.end();
+  }
+  else if(request.text && botRegexGB.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage(randomFace());
+    this.res.end();
+  }
+  else if(request.text && botRegexGJ.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage(randomFace());
     this.res.end();
   }
   else {
