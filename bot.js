@@ -66,7 +66,7 @@ function respond() {
   botRegexDoof = /doof/i;              botRegexOofity = /oofity oofy/i;     botRegexOof = /oof/i;         botRegexSleep = /goodnight/i; 
   botRegexXd = /xd/i;                  botRegexYum = /yum/i;                botRegexAdded = /added/i;     botRegexAuto = /autocorrect/i; 
   botRegexQuin = /shut up jay/i;       botRegexTable = /table flip/i;       botRegexDown = /i'm down/i;   botRegexSiri = /siri/i;
-  botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       
+  botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
   botRegexBored = /i'm bored/i;        botRegexEveryone = /@everyone/i;     botRegexBirthday = /happy birthday jay/i;
@@ -111,7 +111,7 @@ function respond() {
     return names
   }
   
-  if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
+  if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
   
