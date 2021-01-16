@@ -71,13 +71,12 @@ function similarity(s1, s2) {
   if (longerLength == 0) {
     return 1.0;
   }
-
+  console.log(longerLength)
+  console.log(parseFloat(longerLength))
   return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
 }
 
 function editDistance(s1, s2) {
-  console.log("editDistance")
-  console.log(s1, s2)
   s1 = s1.toLowerCase();
   s2 = s2.toLowerCase();
 
