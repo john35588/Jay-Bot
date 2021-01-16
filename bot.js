@@ -112,15 +112,14 @@ function respond() {
   
   console.log(request.name + ": " + request.text);
   
-	percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.')
+  percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.');
 	
-	if(percentSimilar > 0) {
-		this.res.writeHead(200);
-    postMessage(percentSimilar)
+  if(percentSimilar > 0) {
+    this.res.writeHead(200);
+    postMessage(percentSimilar);
     this.res.end();
-	}
-	
-	
+  }
+
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
