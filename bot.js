@@ -140,7 +140,7 @@ function respond() {
       this.res.writeHead(200);
       postMessage("Princess Bride!");
       this.res.end();
-      Break;
+      break;
     }
   }
 
