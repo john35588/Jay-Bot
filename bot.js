@@ -136,11 +136,13 @@ function respond() {
   console.log(request.name + ": " + request.text);
   
   for (i in princessBride) {
-    console.log(princessBride[i]);
+    if (similarity(request.text, princessBride[i]) > .90) {
+      this.res.writeHead(200);
+      postMessage("Princess Bride!");
+      this.res.end();
+      Break;
+    }
   }
-  percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.');
-  
-  console.log("percent:" + percentSimilar);
 
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
