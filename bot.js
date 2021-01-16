@@ -71,8 +71,8 @@ function similarity(s1, s2) {
   if (longerLength == 0) {
     return 1.0;
   }
-  console.log(longerLength)
-  console.log(parseFloat(longerLength))
+  console.log(longerLength);
+  console.log(parseFloat(longerLength));
   return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
 }
 
@@ -99,7 +99,7 @@ function editDistance(s1, s2) {
       if (i > 0) {
         costs[s2.length] = lastValue;
       }
-      
+    console.log(costs[s2.length]);
     return costs[s2.length];
     }
   }
