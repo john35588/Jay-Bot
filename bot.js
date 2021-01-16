@@ -2,7 +2,6 @@ var HTTPS = require('https');
 var cool  = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 var fs    = require('fs');
-var names = "";
 
 function randomNight() {
   var night = [
@@ -59,6 +58,46 @@ function randomJoke() {
   return randomItem
 }
 
+function similarity(s1, s2) {
+	var longer = s1;
+ 	var shorter = s2;
+  if (s1.length < s2.length) {
+  	longer = s2;
+   	shorter = s1;
+  }
+  var longerLength = longer.length;
+  if (longerLength == 0) {
+  	return 1.0;
+  }
+  return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}
+
+function editDistance(s1, s2) {
+	s1 = s1.toLowerCase();
+  s2 = s2.toLowerCase();
+  var costs = new Array();
+  for (var i = 0; i <= s1.length; i++) {
+  	var lastValue = i;
+    for (var j = 0; j <= s2.length; j++) {
+    	if (i == 0)
+      	costs[j] = j;
+      else {
+        if (j > 0) {
+          var newValue = costs[j - 1];
+          if (s1.charAt(i - 1) != s2.charAt(j - 1))
+            newValue = Math.min(Math.min(newValue, lastValue),
+            costs[j]) + 1;
+            costs[j - 1] = lastValue;
+            lastValue = newValue;
+        }
+      }
+  }
+  if (i > 0)
+    costs[s2.length] = lastValue;
+  }
+  return costs[s2.length];
+ }
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegex = /hi jay/i;            botRegexT = /hello jay/i;            botRegexTr = /hey jay/i;      botRegexGB = /good bot/i;
@@ -69,48 +108,19 @@ function respond() {
   botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
-  botRegexBored = /i'm bored/i;        botRegexEveryone = /@everyone/i;     botRegexBirthday = /happy birthday jay/i;
+  botRegexBored = /i'm bored/i;        botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
   
-  var search = names.search(request.name);
-  console.log("Search: " + search);
-  
-  if(search == -1) {
-    fs.appendFile('names.txt', '@' + request.name + ' ', function (err) { 
-      if (err)
-        console.log(err);
-      else
-        console.log('Name Appended.');
-    });
-  }
-  
-  //console.log(getNames());
-  
-  function getNames() {
-    fs.open('names.txt', 'r', function (err, fd) {
-      if (err) {
-        return console.error(err);
-      }
-      var buffr = new Buffer(1024);
-
-      fs.read(fd, buffr, 0, buffr.length, 0, function (err, bytes) {
-        if (err) throw err;
-
-          // Print only read bytes to avoid junk.
-        if (bytes > 0) {
-          names = buffr.slice(0, bytes).toString();
-        }
-
-              // Close the opened file.
-      fs.close(fd, function (err) {
-        if (err) throw err;
-          });
-      });
-    });
-    return names
-  }
-  
+	percentSimilar = checkSimilarity(request.text, 'This is a string of random words that makes sense.')
+	
+	if(percentSimilar > 0) {
+		this.res.writeHead(200);
+    postMessage(percentSimilar)
+    this.res.end();
+	}
+	
+	
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
@@ -224,11 +234,6 @@ function respond() {
   else if(request.text && botRegexBirthday.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Thanks!");
-    this.res.end();
-  }
-  else if(request.text && botRegexEveryone.test(request.text.toLowerCase())) {
-    this.res.writeHead(200);
-    postMessage(getNames());
     this.res.end();
   }
   else if(request.text && botRegexXkcd.test(request.text.toLowerCase())) {
