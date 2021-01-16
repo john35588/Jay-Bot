@@ -76,6 +76,8 @@ function similarity(s1, s2) {
 }
 
 function editDistance(s1, s2) {
+  console.log("editDistance")
+  console.log(s1, s2)
   s1 = s1.toLowerCase();
   s2 = s2.toLowerCase();
 
