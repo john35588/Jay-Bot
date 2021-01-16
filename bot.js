@@ -59,28 +59,28 @@ function randomJoke() {
 }
 
 function similarity(s1, s2) {
-	var longer = s1;
- 	var shorter = s2;
+  var longer = s1;
+  var shorter = s2;
   if (s1.length < s2.length) {
-  	longer = s2;
-   	shorter = s1;
+    longer = s2;
+    shorter = s1;
   }
   var longerLength = longer.length;
   if (longerLength == 0) {
-  	return 1.0;
+    return 1.0;
   }
   return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
 }
 
 function editDistance(s1, s2) {
-	s1 = s1.toLowerCase();
+  s1 = s1.toLowerCase();
   s2 = s2.toLowerCase();
   var costs = new Array();
   for (var i = 0; i <= s1.length; i++) {
-  	var lastValue = i;
+    var lastValue = i;
     for (var j = 0; j <= s2.length; j++) {
-    	if (i == 0)
-      	costs[j] = j;
+      if (i == 0)
+        costs[j] = j;
       else {
         if (j > 0) {
           var newValue = costs[j - 1];
@@ -116,7 +116,7 @@ function respond() {
 	
   if(percentSimilar > 0) {
     this.res.writeHead(200);
-    postMessage(percentSimilar);
+    postMessage("percent:" + percentSimilar);
     this.res.end();
   }
 
