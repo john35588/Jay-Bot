@@ -99,6 +99,28 @@ function similarity(s1, s2) {
       return costs[s2.length];
     }
 
+var princessBride = [
+  'Have fun storming the castle!',
+  'Nonsense. You\'re only saying that because no one ever has.',
+  'Turns out your friend here is only MOSTLY dead. See, mostly dead is still slightly alive.',
+  'He\'s only mostly dead!',
+  'As you wish.',
+  'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.',
+  'Think it\'ll work? It\'ll take a miracle.',
+  'You keep using that word, I don\'t think you know what it means.',
+  'My name is Inigo Montoya, you\'ve killed my father, prepare to die.',
+  'My way isn\'t very sportsmanlike.',
+  'Life is Pain. Anyone who says different is trying to sell you something.',
+  'Anybody wanna peanut?',
+  'That does put a damper on our relationship.',
+  'I\'m not a witch I\'m your wife. But after what you just said I\'m not even sure I want to be that anymore.',
+  'Mawage. Mawage is what bwings us togever today. Mawage that bwessed awangement, that dweam within a dweam.',
+  'The rodents of unusual size? I don\'t believe they exist.',
+  'You rush a miracle man, you get rotten miracles.',
+  'You\'ve been mostly dead all day.',
+  'You\'ve fallen for one of the two classic blunders!'
+]
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegex = /hi jay/i;            botRegexT = /hello jay/i;            botRegexTr = /hey jay/i;      botRegexGB = /good bot/i;
@@ -113,7 +135,11 @@ function respond() {
   
   console.log(request.name + ": " + request.text);
   
+  for (var i = 0; i < princessBride.Length; i++) {
+    console.log(myStringArray[i]);
+  }
   percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.');
+  
   console.log("percent:" + percentSimilar);
 
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
