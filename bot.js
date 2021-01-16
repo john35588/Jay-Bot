@@ -89,8 +89,7 @@ function editDistance(s1, s2) {
         if (j > 0) {
           var newValue = costs[j - 1];
           if (s1.charAt(i - 1) != s2.charAt(j - 1)) {
-            newValue = Math.min(Math.min(newValue, lastValue),
-            costs[j]) + 1;
+            newValue = Math.min(Math.min(newValue, lastValue),costs[j]) + 1;
             costs[j - 1] = lastValue;
             lastValue = newValue;
           }
@@ -123,7 +122,7 @@ function respond() {
 	
   if(percentSimilar > 0.25) {
     this.res.writeHead(200);
-    postMessage("percent:" + percentSimilar);
+    console.log("percent:" + percentSimilar);
     this.res.end();
   }
   
