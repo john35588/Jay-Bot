@@ -136,7 +136,7 @@ function respond() {
   console.log(request.name + ": " + request.text);
   
   for (var i = 0; i < princessBride.Length; i++) {
-    console.log(myStringArray[i]);
+    console.log(princessBride[i]);
   }
   percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.');
   
