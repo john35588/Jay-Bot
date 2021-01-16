@@ -103,6 +103,7 @@ var princessBride = [
   'Have fun storming the castle!',
   'Nonsense. You\'re only saying that because no one ever has.',
   'Turns out your friend here is only MOSTLY dead. See, mostly dead is still slightly alive.',
+  'Turns out your friend here is only MOSTLY dead.',
   'He\'s only mostly dead!',
   'As you wish.',
   'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.',
@@ -136,7 +137,7 @@ function respond() {
   console.log(request.name + ": " + request.text);
   
   for (i in princessBride) {
-    if (similarity(request.text, princessBride[i]) > .90) {
+    if (similarity(request.text.toLowerCase(), princessBride[i].toLowerCase()) > .90) {
       this.res.writeHead(200);
       postMessage("Princess Bride!");
       this.res.end();
