@@ -112,7 +112,7 @@ function respond() {
   
   console.log(request.name + ": " + request.text);
   
-	percentSimilar = checkSimilarity(request.text, 'This is a string of random words that makes sense.')
+	percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.')
 	
 	if(percentSimilar > 0) {
 		this.res.writeHead(200);
