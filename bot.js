@@ -115,18 +115,18 @@ function respond() {
   botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
-  botRegexBored = /i'm bored/i;        botRegexBirthday = /happy birthday jay/i;
+  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay (testing)/i;   botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
   
   percentSimilar = similarity(request.text, 'This is a string of random words that makes sense.');
 	
-  if(percentSimilar > 0) {
+  if(percentSimilar > 0.25) {
     this.res.writeHead(200);
     postMessage("percent:" + percentSimilar);
     this.res.end();
   }
-
+  
   if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
