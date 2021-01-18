@@ -141,6 +141,30 @@ var montyPython = [
   'I\'ll bite your legs off!'
 ]
 
+var megaMind = [
+  'Ollo?',
+  'I\'m in a heated, existential discussion with this dead-eyed, plastic desk toy!',
+  'Melon-co-lee',
+  'Girls, girls, you\'re both pretty. Can I go home now?',
+  'I\'m shaking in my custom baby seal leather boots!',
+  'Justice is a dish best served cold. But it can be REHEATED in the MICROEAVE OF EVIL!',
+  'Justice is a dish best served cold.',
+  'But it can be REHEATED in the MICROEAVE OF EVIL!',
+  'Maybe I don\'t want to be the bad guy anymore!',
+  'I\'ll just pack my thing and GO.',
+  'I tried to resist, but he\'s just too fantastic!',
+  'And evil returns with a backhand!',
+  'Uhhhh, it\'s still warming up sir.',
+  'The sun is warming up?!',
+  'Just a little tiny bit tippy tip tap more aaaaaaand',
+  'My spider bite is acting up!',
+  'Ah yes, the aracnecuth deathecus, just one bite can paralyze even',
+  'You were right! I was.....less right!',
+  'AHH! GET IT OFF!',
+  'OW, IT BIT ME!',
+  'And I\'m your space step-mom! I\'ve had some work done recently.'
+]
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegex = /hi jay/i;            botRegexT = /hello jay/i;            botRegexTr = /hey jay/i;      botRegexGB = /good bot/i;
@@ -173,6 +197,15 @@ function respond() {
     if (similarity(request.text.toLowerCase(), montyPython[i].toLowerCase()) > .90) {
       this.res.writeHead(200);
       postMessage("Monty Python!");
+      this.res.end();
+      break;
+    }
+  }
+  
+  for (i in megaMind) {
+    if (similarity(request.text.toLowerCase(), megaMind[i].toLowerCase()) > .90) {
+      this.res.writeHead(200);
+      postMessage("Megamind!");
       this.res.end();
       break;
     }
