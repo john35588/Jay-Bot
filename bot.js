@@ -132,7 +132,7 @@ function respond() {
   botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
-  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay (testing)/i;   botRegexBirthday = /happy birthday jay/i;
+  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay (testing)/i;   botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
   
@@ -145,7 +145,7 @@ function respond() {
     }
   }
 
-  if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text.toLowerCase()) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
+  if(request.text && botRegexOofity.test(request.text.toLowerCase()) || botRegexSiriN.test(request.text) || botRegexMorningT.test(request.text.toLowerCase()) || botRegexOopsT.test(request.text.toLowerCase()) || request.text && botRegexDoof.test(request.text.toLowerCase())) {
     request.text = "null";
   }
   
@@ -285,6 +285,11 @@ function respond() {
   else if(request.text && botRegexGJ.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage(randomFace());
+    this.res.end();
+  }
+  else if(request.text && botRegexBad.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Bad " + request.name + "!");
     this.res.end();
   }
   else {
