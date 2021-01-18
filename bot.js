@@ -125,6 +125,22 @@ var princessBride = [
   'You\'ve fallen for one of the two classic blunders!'
 ]
 
+var montyPython = [
+  'She turned me into a newt!',
+  'Tis but a scratch.',
+  'Well I got better.',
+  'I fart in your general direction!',
+  'It\'s just a flesh wound.',
+  'What are you gonna do, bleed on me?',
+  'Your mother was a hamster and your father smelt of elderberries.',
+  'Help! I’m being repressed!',
+  'bring forth the holy hand grenade!',
+  'Now go away or I will taunt you a second time.',
+  'All right, we\'ll call it a draw.',
+  'Well I didn\'t vote for you!',
+  'I\'ll bite your legs off!'
+]
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegex = /hi jay/i;            botRegexT = /hello jay/i;            botRegexTr = /hey jay/i;      botRegexGB = /good bot/i;
@@ -135,7 +151,7 @@ function respond() {
   botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
-  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;   botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
+  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
   
@@ -148,6 +164,15 @@ function respond() {
     if (similarity(request.text.toLowerCase(), princessBride[i].toLowerCase()) > .90) {
       this.res.writeHead(200);
       postMessage("Princess Bride!");
+      this.res.end();
+      break;
+    }
+  }
+  
+  for (i in montyPython) {
+    if (similarity(request.text.toLowerCase(), montyPython[i].toLowerCase()) > .90) {
+      this.res.writeHead(200);
+      postMessage("Monty Python!");
       this.res.end();
       break;
     }
