@@ -135,9 +135,14 @@ function respond() {
   botRegexMorning = /good morning/i;   botRegexMorningT = /good morning/i;  botRegexOops = /oops/i;       botRegexSiriN = /Siri!/i;
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
-  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay (testing)/i;   botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
+  botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;   botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
   
   console.log(request.name + ": " + request.text);
+  
+  if(request.text && botRegexNotJay.test(request.name.toLowerCase())) {
+    request.text = "null";
+  }
+  
   
   for (i in princessBride) {
     if (similarity(request.text.toLowerCase(), princessBride[i].toLowerCase()) > .90) {
