@@ -152,6 +152,7 @@ var megaMind = [
   'But it can be REHEATED in the MICROEAVE OF EVIL!',
   'Maybe I don\'t want to be the bad guy anymore!',
   'I\'ll just pack my thing and GO.',
+  'Don\'t bother screaming, no one will hear you!',
   'I tried to resist, but he\'s just too fantastic!',
   'And evil returns with a backhand!',
   'Uhhhh, it\'s still warming up sir.',
