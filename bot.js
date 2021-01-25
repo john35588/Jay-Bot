@@ -8,7 +8,8 @@ function randomNight() {
     'Sleep well!',
     'Good night!',
     'Don\'t let the bed bugs bite!',
-    'Sweet dreams!'
+    'Sweet dreams!',
+    'Go to bed, you sleepy head!'
   ]
   var randomItem = night[Math.floor(Math.random()*night.length)];
   return randomItem
@@ -144,6 +145,7 @@ var montyPython = [
 var megaMind = [
   'Ollo?',
   'I\'m in a heated, existential discussion with this dead-eyed, plastic desk toy!',
+  'I\'m in a heated, existential discussion!',
   'Melon-co-lee',
   'Girls, girls, you\'re both pretty. Can I go home now?',
   'I\'m shaking in my custom baby seal leather boots!',
@@ -163,7 +165,8 @@ var megaMind = [
   'You were right! I was.....less right!',
   'AHH! GET IT OFF!',
   'OW, IT BIT ME!',
-  'And I\'m your space step-mom! I\'ve had some work done recently.'
+  'And I\'m your space step-mom! I\'ve had some work done recently.',
+  'And I\'m your space step-mom!'
 ]
 
 function respond() {
