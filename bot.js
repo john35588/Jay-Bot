@@ -288,7 +288,7 @@ function respond() {
   }
   else if(request.text && botRegexMeh.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("¯\_(ツ)_/¯");
+    postMessage("¯\\_(ツ)_/¯");
     this.res.end();
   }
    else if(request.text && botRegexDown.test(request.text.toLowerCase())) {
