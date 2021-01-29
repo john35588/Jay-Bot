@@ -238,7 +238,7 @@ function respond() {
     var searchTerm = 'to the';
     var indexOfSec = request.text.indexOf(searchTerm);
     console.log('The index of "' + searchTerm + '" from the beginning is ' + indexOfFirst);
-    postMessage("Hello " + request.text.slice(indexOfFirst + 5, indexOfSec - 1) + ", welcome to the group!");
+    postMessage("Hello" + request.text.slice(indexOfFirst + 5, indexOfSec - 1) + ", welcome to the group!");
     this.res.end();
   }
   else if(request.text && botRegexDoing.test(request.text.toLowerCase()) || botRegexDoingT.test(request.text.toLowerCase())) {
