@@ -180,7 +180,7 @@ function respond() {
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
   botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
-  botRegexMeh = /meh/i;
+  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;
   
   console.log(request.name + ": " + request.text);
   
@@ -239,6 +239,11 @@ function respond() {
     var indexOfSec = request.text.indexOf(searchTerm);
     console.log('The index of "' + searchTerm + '" from the beginning is ' + indexOfFirst);
     postMessage("Hello" + request.text.slice(indexOfFirst + 5, indexOfSec - 1) + ", welcome to the group!");
+    this.res.end();
+  }
+  else if(request.text && botRegexRejoined.test(request.text.toLowerCase()) && request.name == "GroupMe") {
+    this.res.writeHead(200);
+    postMessage("Good to see you again!");
     this.res.end();
   }
   else if(request.text && botRegexDoing.test(request.text.toLowerCase()) || botRegexDoingT.test(request.text.toLowerCase())) {
