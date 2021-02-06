@@ -182,6 +182,10 @@ function respond() {
   botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
   botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;
   
+  var botRegexStop = /stop/i;          botRegexStopIt = /stop it/i;         botRegexBell = /bell/i;       botRegexGoodJob = /good job/i;
+  botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
+  botRegexAnimal = /animal/i;          
+  
   console.log(request.name + ": " + request.text);
   
   if(request.text && botRegexNotJay.test(request.name.toLowerCase())) {
@@ -371,6 +375,52 @@ function respond() {
   else if(request.text && botRegexBad.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("Bad " + request.name + "!");
+    this.res.end();
+  }
+  //Begin BTS quotes and references
+  else if(request.text && botRegexStopIt.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("S-T-O-P ... I-T! Wow! Yeah!");
+    this.res.end();
+  }
+  else if(request.text && botRegexStop.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Hey! Stob it!");
+    this.res.end();
+  }
+  else if(request.text && botRegexBell.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("dING dOnG");
+    this.res.end();
+  }
+  else if(request.text && botRegexGoodJob.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("kaepjjang");
+    this.res.end();
+  }
+  else if(request.text && botRegexBubble.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Would you belive we're living in a bubble? Unbelibubble!");
+    this.res.end();
+  }
+  else if(request.text && botRegexSprite.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("I love hamburger and sprite!");
+    this.res.end();
+  }
+  else if(request.text && botRegexHamburger.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("I love hamburger and sprite!");
+    this.res.end();
+  }
+  else if(request.text && botRegexPanda.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("I LOVE Panda Express!");
+    this.res.end();
+  }
+  else if(request.text && botRegexAnimal.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("My favorite animal is a Brachiosaurus!");
     this.res.end();
   }
   else {
