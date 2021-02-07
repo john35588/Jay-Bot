@@ -184,14 +184,14 @@ function respond() {
   
   var botRegexStop = /stop/i;          botRegexStopIt = /stop it/i;         botRegexBell = /bell/i;       botRegexGoodJob = /good job/i;
   botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
-  botRegexAnimal = /animal/i;          
+  botRegexAnimal = /animal/i;          botRegexExcuseMe = /excuse me/i;     botRegexUncool = /uncool/i;   botRegexImportant = /important/i;
+  botRegexInspire = /inspire/i;        botRegexPurple = /purple/i;          botRegexNotFun = /not fun/i;  botRegexLoveYou = /love you/i;
   
   console.log(request.name + ": " + request.text);
   
   if(request.text && botRegexNotJay.test(request.name.toLowerCase())) {
     request.text = "null";
   }
-  
   
   for (i in princessBride) {
     if (similarity(request.text.toLowerCase(), princessBride[i].toLowerCase()) > .90) {
@@ -421,6 +421,41 @@ function respond() {
   else if(request.text && botRegexAnimal.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("My favorite animal is a Brachiosaurus!");
+    this.res.end();
+  }
+  else if(request.text && botRegexExcuseMe.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Pardon?");
+    this.res.end();
+  }
+  else if(request.text && botRegexUncool.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Jimin, you got no jams.");
+    this.res.end();
+  }
+  else if(request.text && botRegexImportant.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Important Businesseu");
+    this.res.end();
+  }
+  else if(request.text && botRegexInspire.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Insfires man, yeah!");
+    this.res.end();
+  }
+  else if(request.text && botRegexPurple.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("보라해");
+    this.res.end();
+  }
+  else if(request.text && botRegexNotFun.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("You very no fun");
+    this.res.end();
+  }
+  else if(request.text && botRegexLoveYou.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("사랑해");
     this.res.end();
   }
   else {
