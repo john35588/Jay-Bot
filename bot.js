@@ -180,7 +180,7 @@ function respond() {
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
   botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
-  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;      botRegexE = /e/i;
+  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;
   
   var botRegexStop = /stop/i;          botRegexStopIt = /stop it/i;         botRegexBell = /bell/i;       botRegexGoodJob = /good job/i;
   botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
@@ -456,11 +456,6 @@ function respond() {
   else if(request.text && botRegexLoveYou.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("사랑해");
-    this.res.end();
-  }
-  else if(request.text && botRegexE.test(request.text.toLowerCase())) {
-    this.res.writeHead(200);
-    postMessage("That message had an E in it!");
     this.res.end();
   }
   else {
