@@ -186,6 +186,7 @@ function respond() {
   botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
   botRegexAnimal = /animal/i;          botRegexExcuseMe = /excuse me/i;     botRegexUncool = /uncool/i;   botRegexImportant = /important/i;
   botRegexInspire = /inspire/i;        botRegexPurple = /purple/i;          botRegexNotFun = /not fun/i;  botRegexLoveYou = /love you/i;
+  botRegexBTS = /bts/i;                botRegexHandsome = /handsome/i;
   
   console.log(request.name + ": " + request.text);
   
@@ -456,6 +457,16 @@ function respond() {
   else if(request.text && botRegexLoveYou.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
     postMessage("사랑해");
+    this.res.end();
+  }
+  else if(request.text && botRegexBTS.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("You know BTS? Billboard singer.");
+    this.res.end();
+  }
+  else if(request.text && botRegexHandsome.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("Yeah I'm WWH, Worldwide Handsome you know?.");
     this.res.end();
   }
   else {
