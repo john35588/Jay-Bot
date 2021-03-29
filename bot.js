@@ -130,6 +130,7 @@ var montyPython = [
   'She turned me into a newt!',
   'Tis but a scratch.',
   'Well I got better.',
+  'I got better.',
   'I fart in your general direction!',
   'It\'s just a flesh wound.',
   'What are you gonna do, bleed on me?',
@@ -139,7 +140,9 @@ var montyPython = [
   'Now go away or I will taunt you a second time.',
   'All right, we\'ll call it a draw.',
   'Well I didn\'t vote for you!',
-  'I\'ll bite your legs off!'
+  'I\'ll bite your legs off!',
+  'We are the Knights who say Ni!',
+  'The holy hand grenade'
 ]
 
 var megaMind = [
