@@ -152,9 +152,9 @@ var megaMind = [
   'Melon-co-lee',
   'Girls, girls, you\'re both pretty. Can I go home now?',
   'I\'m shaking in my custom baby seal leather boots!',
-  'Justice is a dish best served cold. But it can be REHEATED in the MICROEAVE OF EVIL!',
+  'Justice is a dish best served cold. But it can be REHEATED in the MICROWAVE OF EVIL!',
   'Justice is a dish best served cold.',
-  'But it can be REHEATED in the MICROEAVE OF EVIL!',
+  'But it can be REHEATED in the MICROWAVE OF EVIL!',
   'Maybe I don\'t want to be the bad guy anymore!',
   'I\'ll just pack my thing and GO.',
   'Don\'t bother screaming, no one will hear you!',
@@ -183,7 +183,7 @@ function respond() {
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
   botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
-  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;
+  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;      botRegexBee = /you like jazz?/i;
   
   var botRegexStop = /stop/i;          botRegexStopIt = /stop it/i;         botRegexBell = /bell/i;       botRegexGoodJob = /good job/i;
   botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
@@ -472,6 +472,12 @@ function respond() {
     postMessage("Yeah I'm WWH, Worldwide Handsome you know?.");
     this.res.end();
   }
+  else if(request.text && botRegexBee.test(request.text.toLowerCase())) {
+    this.res.writeHead(200);
+    postMessage("According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don\'t care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, black and yellow!");
+    this.res.end();
+  }
+  
   else {
     this.res.writeHead(200);
     this.res.end();
