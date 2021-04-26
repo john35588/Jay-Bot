@@ -183,7 +183,7 @@ function respond() {
   botRegexOopsT = /oopsie/i;           botRegexJokes = /tell me a joke/i;   botRegexTired = /i'm tired/i; botRegexGJ = /good jay/i;
   botRegexHungry = /i'm hungry/i;      botRegexNo = /oh no/i;               botRegexDate = /get date/i;   botRegexXkcd = /get xkcd/i; 
   botRegexBored = /i'm bored/i;        botRegexNotJay = /jay/i;             botRegexBad = /bad jay/i;     botRegexBirthday = /happy birthday jay/i;
-  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;      botRegexBee = /you like jazz?/i;
+  botRegexMeh = /meh/i;                botRegexRejoined = /rejoined/i;      botRegexBee = /ya like jazz?/i;
   
   var botRegexStop = /stop/i;          botRegexStopIt = /stop it/i;         botRegexBell = /bell/i;       botRegexGoodJob = /good job/i;
   botRegexBubble = /bubble/i;          botRegexPanda = /panda/i;            botRegexSprite = /sprite/i;   botRegexHamburger = /hamburger/i;
