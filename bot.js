@@ -151,6 +151,7 @@ var montyPython = [
 
 var megaMind = [
   'Ollo?',
+  'Ollo',
   'I\'m in a heated, existential discussion with this dead-eyed, plastic desk toy!',
   'I\'m in a heated, existential discussion!',
   'Melon-co-lee',
