@@ -475,7 +475,7 @@ function respond() {
   }
   else if(request.text && botRegexHandsome.test(request.text.toLowerCase())) {
     this.res.writeHead(200);
-    postMessage("Yeah I'm WWH, Worldwide Handsome you know?.");
+    postMessage("Yeah I'm WWH, Worldwide Handsome you know?");
     this.res.end();
   }
   else if(request.text && botRegexBee.test(request.text.toLowerCase())) {
